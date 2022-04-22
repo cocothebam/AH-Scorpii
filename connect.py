@@ -2,7 +2,6 @@ import os
 
 import discord
 from dotenv import load_dotenv
-from commands import CommandsBot
 from discord.ext import commands
 
 
@@ -17,7 +16,10 @@ bot = commands.Bot(command_prefix="-")
 @bot.event
 async def on_ready():
     print(f"{bot.user.name} has connected to Discord!")
-    CommandsBot()
+
+    @bot.command()
+    async def test(ctx):
+        await ctx.send("no")
 
 
 bot.run(TOKEN)
